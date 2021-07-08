@@ -4,8 +4,8 @@ import numpy as np
 def clip(a, min_value, max_value):
     return min(max(a, min_value), max_value)
 
-
-def compute(array_1, array_2, a, b, c):
+# note the instance of a class is passed in
+def compute(array_1, array_2, myparams, a, b, c):
     """
     This function must implement the formula
     np.clip(array_1, 2, 10) * a + array_2 * b + c
@@ -24,5 +24,8 @@ def compute(array_1, array_2, a, b, c):
             tmp = clip(array_1[x, y], 2, 10)
             tmp = tmp * a + array_2[x, y] * b
             result[x, y] = tmp + c
+
+    # here we access a data member of the object passed in
+    print myparams.d
 
     return result
